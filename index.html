@@ -3,49 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Run JavaScript</title>
+    <title>see signs in grab website thing</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 50px;
-            background-color: #f4f4f4;
+            background-color: #19974c;
         }
-        button {
+        a {
+            display: inline-block;
             font-size: 18px;
             padding: 10px 20px;
             background-color: #28a745;
             color: white;
-            border: none;
-            cursor: pointer;
+            text-decoration: none;
             border-radius: 5px;
+            cursor: grab;
         }
-        button:hover {
+        a:hover {
             background-color: #218838;
         }
     </style>
 </head>
 <body>
 
-    <h1>Click the Button to Modify Local Storage</h1>
-    <button onclick="modifyUserData()">Run Script</button>
+    <h1>drag this into your bookmarks</h1>
+    <p>then go to the GRAB website and sign in, press the button you just added into your bookmarks, and refresh your page.</p>
 
-    <script>
-        function modifyUserData() {
-            var userDataJSON = localStorage.getItem('user');
-            if (userDataJSON) {
-                var userData = JSON.parse(userDataJSON);
-                userData.user.info.is_admin = true;
-                userData.user.info.is_moderator = true;
-                userData.user.info.is_super_moderator = true;
-                userData.user.info.is_verifier = true;
-                localStorage.setItem('user', JSON.stringify(userData));
-                alert("User data changed! please refresh the page.");
-            } else {
-                alert("meta account not found!");
-            }
+    <a href="javascript:(function() {
+        var userDataJSON = localStorage.getItem('user');
+        if (userDataJSON) {
+            var userData = JSON.parse(userDataJSON);
+            userData.user.info.is_admin = true;
+            userData.user.info.is_moderator = true;
+            userData.user.info.is_super_moderator = true;
+            userData.user.info.is_verifier = true;
+            localStorage.setItem('user', JSON.stringify(userData));
+            alert('User data updated successfully, please refresh the page.');
+        } else {
+            alert('No user data found in local storage.');
         }
-    </script>
+    })();" draggable="true">🔗 Make Me Admin</a>
 
 </body>
 </html>
