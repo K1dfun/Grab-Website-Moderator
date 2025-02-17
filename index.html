@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K1dfuns button drag apple bookmark thing</title>
+    <title>Run JavaScript</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f4f4f4;
             padding: 50px;
+            background-color: #f4f4f4;
         }
-        h1 {
-            color: #333;
-        }
-        p {
+        button {
             font-size: 18px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
         }
-        a {
-            text-decoration: none;
-            color: #007bff;
-            font-weight: bold;
+        button:hover {
+            background-color: #218838;
         }
     </style>
 </head>
 <body>
-    <h1>k1dfuns cool thing</h1>
-    <p>its mine</p>
+
+    <h1>Click the Button to Modify Local Storage</h1>
+    <button onclick="modifyUserData()">Run Script</button>
+
+    <script>
+        function modifyUserData() {
+            var userDataJSON = localStorage.getItem('user');
+            if (userDataJSON) {
+                var userData = JSON.parse(userDataJSON);
+                userData.user.info.is_admin = true;
+                userData.user.info.is_moderator = true;
+                userData.user.info.is_super_moderator = true;
+                userData.user.info.is_verifier = true;
+                localStorage.setItem('user', JSON.stringify(userData));
+                alert("User data changed! please refresh the page.");
+            } else {
+                alert("meta account not found!");
+            }
+        }
+    </script>
+
 </body>
 </html>
