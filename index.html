@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>see signs in grab website thing</title>
+    <title>Mod Perms</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,23 +28,23 @@
 </head>
 <body>
 
-    <h1>drag this into your bookmarks</h1>
-    <p>then go to the GRAB website and sign in, press the button you just added into your bookmarks, and refresh your page.</p>
+    <h1>drag the button below into your bookmarks</h1>
+    <p>Then go to the offical grab website and login, after. open your bookmarks and press the button and refresh the page</p>
 
     <a href="javascript:(function() {
         var userDataJSON = localStorage.getItem('user');
         if (userDataJSON) {
             var userData = JSON.parse(userDataJSON);
-            userData.user.info.is_admin = true;
+            userData.user.info.is_admin = false;
             userData.user.info.is_moderator = true;
-            userData.user.info.is_super_moderator = true;
-            userData.user.info.is_verifier = true;
+            userData.user.info.is_super_moderator = false;
+            userData.user.info.is_verifier = false;
             localStorage.setItem('user', JSON.stringify(userData));
-            alert('User data updated successfully, please refresh the page.');
+            alert('updated! refresh the page to see the changes.');
         } else {
-            alert('No user data found in local storage.');
+            alert('Please sign in first!');
         }
-    })();" draggable="true">Visable Signs</a>
+    })();" draggable="true">Drag this button to your bookmakrs</a>
 
 </body>
 </html>
