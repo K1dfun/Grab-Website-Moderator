@@ -48,7 +48,7 @@
             var userData = JSON.parse(userDataJSON);
             userData.user.info.is_admin = false;
             userData.user.info.is_moderator = true;
-            userData.user.info.is_super_moderator = false;
+            userData.user.info.is_supermoderator = true;
             userData.user.info.is_verifier = false;
             localStorage.setItem('user', JSON.stringify(userData));
             alert('updated! refresh the page to see the changes.');
